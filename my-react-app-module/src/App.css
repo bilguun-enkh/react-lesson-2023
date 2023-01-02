@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  width: 1280px;
+  max-width: 1280px;
+  width: 100%;
   margin: auto;
 }
 
@@ -32,10 +33,11 @@ h1 {
 }
 
 .BodyDiv {
-  margin: 30px auto;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
-  max-width: 800px;
+  max-width: 1280px;
+  width: 100%;
 }
 
 .pic1 {
@@ -43,7 +45,7 @@ h1 {
 }
 
 .icon {
-  width: 50px ;
+  width: 50px;
 }
 
 .BodyRight1 {
@@ -63,6 +65,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  width: 500px;
 }
 
 .blue {

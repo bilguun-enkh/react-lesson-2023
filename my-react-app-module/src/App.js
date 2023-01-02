@@ -18,7 +18,7 @@ function Body() {
   return (
     <div className="Body">
       <div className="BodyDiv">
-        <div >
+        <div className="imgDiv">
           <img src='products/image-yellow.png' className="pic1"></img>
         </div>
         <div className="BodyRight1">
