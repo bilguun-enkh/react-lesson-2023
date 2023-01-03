@@ -1,5 +1,4 @@
 import React from "react"
-import logo from "./logo.svg"
 import './App.css';
 
 class Product4 extends React.Component {
@@ -7,7 +6,7 @@ class Product4 extends React.Component {
         return (
             <div className="BodyDiv">
                 <div >
-                    <img src='products/image-rose.png' className="pic1"></img>
+                    <img src='products/image-rose.png' alt="idk" className="pic1"></img>
                 </div>
                 <div className="BodyRight1">
                     <h3>∆ 23</h3>
@@ -15,7 +14,7 @@ class Product4 extends React.Component {
                         <p className='blue'>Supermajority: The Fantasy Congress League</p>
                         <p> Earn points when your favorite politicians pass legislations.</p>
                     </div>
-                    <p>Submitted by : <img src={logo} className="icon"></img></p>
+                    <p>Submitted by : <img src="avatars/matthew.png" alt="idk" className="icon"></img></p>
                 </div>
             </div>
         )
