@@ -41,7 +41,8 @@ h1 {
 }
 
 .pic1 {
-  width: 200px
+  width: 200px;
+  border-radius: 20px;
 }
 
 .icon {
@@ -74,7 +75,7 @@ h1 {
 }
 
 p {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .App-link {
