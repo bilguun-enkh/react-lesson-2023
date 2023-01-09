@@ -1,5 +1,7 @@
 import './App.css';
 import Button from './components/event';
+import ParentToolbar from './components/ParentToolbar';
+import SignUp from './components/SignUp';
 import Toolbar from './components/toolbar';
 import ToolbarNext from './components/ToolBarNext';
 
@@ -10,6 +12,8 @@ function App() {
       <Button />
       <Toolbar />
       <ToolbarNext />
+      <ParentToolbar />
+      <SignUp />
     </div>
   );
 }
