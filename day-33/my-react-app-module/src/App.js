@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ProductFunc from './ProductFunc'
 import { products } from './seed'
-import React, { useEffect } from 'react'
+import React from 'react'
 
 
 function App() {
