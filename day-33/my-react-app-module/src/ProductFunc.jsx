@@ -6,11 +6,11 @@ import { Rating } from 'react-simple-star-rating'
 function ProductFunc(props) {
 
 
-    const [votes, setVotes] = useState(props.votes)
+    // const [votes, setVotes] = useState(props.votes)
     const [star, setStar] = useState(props.stars)
 
     function handleUpVote() {
-        setVotes(votes + 1)
+        // setVotes(votes + 1)
         if (star > 5) {
             setStar(0)
         } else {
@@ -33,7 +33,7 @@ function ProductFunc(props) {
 
     function starDownvote() {
         setStar(star - 1)
-        console.log("up")
+        console.log("Down")
     }
 
 
@@ -45,9 +45,9 @@ function ProductFunc(props) {
                     <img src={props.productImageUrl} alt="idk" className="pic1"></img>
                 </div>
                 <div className="BodyRight1">
-                    <a onClick={handleUpVote} id="upvote">∆ Upvote</a>
+                    <a onClick={() => props.onVote(props.id)} id="upvote">∆ Upvote</a>
                     <a onClick={starDownvote}>Downvote</a>
-                    <h3 id="voteText"> {votes}</h3>
+                    <h3 id="voteText"> {props.votes}</h3>
                     <div className='BodyRightMid'>
                         <p className='blue'>{props.title}</p>
                         <p>{props.description}</p>
@@ -55,7 +55,7 @@ function ProductFunc(props) {
                     <p>Submitted by : <img src={props.submitterAvatarUrl} alt="placeholderpic" className="icon"></img></p>
                 </div>
                 <Rating
-                            initialValue={star} />
+                    initialValue={star} />
             </div>
         </div>
     )
