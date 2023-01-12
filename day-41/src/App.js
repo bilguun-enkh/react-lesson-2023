@@ -1,6 +1,9 @@
 import './App.css';
 import { useState } from "react"
 import Counter from './component/Counter';
+import UpdateArrays from './component/UpdateArrays';
+import List from './component/SpreadArray';
+import UpdatingObjects from './component/UpdatingObjects';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +25,11 @@ function App() {
       <p>{inputText}</p>
 
       <Counter />
+      <UpdateArrays />
+
+      <List />
+
+      <UpdatingObjects />
     </div>
   );
 }
