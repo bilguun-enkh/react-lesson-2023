@@ -1,25 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import About from './components.jsx/About';
+import FeedbackForm from './components.jsx/FeedbackForm';
+import Login from './components.jsx/Login';
+import Register from './components.jsx/Register';
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h1>Day - 43 - React routers</h1>
+      <Routes>
+        <Route path='/about' element={<About />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/feedbackform' element={<FeedbackForm />} />
+      </Routes>
     </div>
-  );
+  )
 }
-
 export default App;
