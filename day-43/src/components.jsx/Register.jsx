@@ -3,19 +3,19 @@ export default function Register() {
         <div>
             <h1>Register page</h1>
             <form>
-                <label for='email'>Email</label>
+                <label htmlFor='email'>Email</label>
                 <input type='email'></input>
                 <br />
-                <label for='firstname'>First name: </label>
+                <label htmlFor='firstname'>First name: </label>
                 <input type='text' name='firstname'></input>
                 <br />
-                <label for='lastname'>Last name: </label>
+                <label htmlFor='lastname'>Last name: </label>
                 <input type='text' name='lastname'></input>
                 <br />
-                <label for='password'>Password: </label>
+                <label htmlFor='password'>Password: </label>
                 <input type='password' name='password'></input>
                 <br />
-                <label for='password'>Confirm Password: </label>
+                <label htmlFor='password'>Confirm Password: </label>
                 <input type='password' name='password'></input>
                 <br />
                 <button>
