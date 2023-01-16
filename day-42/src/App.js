@@ -14,7 +14,7 @@ function App() {
       lastname: event.target.lastname.value,
       password: event.target.password.value,
     }
-
+    1
     setUser([...user, newUser])
   }
   return (
