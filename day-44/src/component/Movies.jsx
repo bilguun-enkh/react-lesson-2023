@@ -14,6 +14,8 @@ export default function Movies() {
                     </Link>
                 )
             })}
+            <Link to={'/'}>Back</Link>
+
         </div>
     )
 }
