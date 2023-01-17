@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Accordion from './component/Accordion';
+import { Routes, Route } from 'react-router-dom'
+import Index from './component/Index';
+import AboutPage from './component/AboutPage';
+import HomePage from './component/HomePage';
+import Movies from './component/Movies';
+import Movie from './component/Movie';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={<Index />} />
+        <Route path={'accordion'} element={<Accordion />} />
+        <Route path={'home'} element={<HomePage />} />
+        <Route path={'about'} element={<AboutPage />} />
+        <Route path={'movies'} element={<Movies />} />
+        <Route path={'movie/:id'} element={<Movie />} />
+      </Routes>
     </div>
   );
 }
