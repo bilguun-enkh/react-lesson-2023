@@ -6,6 +6,9 @@ import AboutPage from './component/AboutPage';
 import HomePage from './component/HomePage';
 import Movies from './component/Movies';
 import Movie from './component/Movie';
+import GalleryPage from './component/GalleryPage';
+
+
 function App() {
   return (
     <div className="App">
@@ -14,6 +17,7 @@ function App() {
         <Route path={'accordion'} element={<Accordion />} />
         <Route path={'home'} element={<HomePage />} />
         <Route path={'about'} element={<AboutPage />} />
+        <Route path={'gallery'} element={<GalleryPage />} />
         <Route path={'movies'} element={<Movies />} />
         <Route path={'movie/:id'} element={<Movie />} />
       </Routes>
