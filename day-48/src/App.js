@@ -4,6 +4,7 @@ import { useState } from "react"
 import Anime from './component/Anime';
 import Button from './component/Button';
 import TopAnime from './component/TopAnime';
+import FindEvenOdd from './component/EvenOdd';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <h1>Day - 48 - UseEffects </h1>
+      <FindEvenOdd />
       {/* <Input labelText={labelText1} handleChange={handleChange} text={text} />
       <Input labelText={labelText2} handleChange={handleChange} text={text} />
       <Anime />
