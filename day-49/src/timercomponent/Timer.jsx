@@ -4,17 +4,28 @@ import { Box } from '@mui/system'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import TimerActionButton from './TimerActionButton';
-import { useState } from 'react';
 import { renderElapsedString } from './Helpers';
 
-export default function Timer({ title, project, elapsed, runningSince, runningTime }) {
-    const [timerIsRunning, setTimmerIsRunning] = useState(false)
+export default function Timer({ title, project, elapsed, runningSince, id, onTrashClick, onStartClick, onStopClick }) {
     const timer = renderElapsedString(elapsed, runningSince)
+
+
+    function handleDelete() {
+        onTrashClick(id)
+    }
+
+    function handleStartClick() {
+        onStartClick(id)
+    }
+    function handleStopClick() {
+        onStopClick(id)
+    }
+
     return (
-        <Container maxWidth="sm">
+        <Container maxWidth="sm" style={{ marginBottom: '50px' }}>
             <Card sx={{
                 maxWidth: 345,
-                marginBottom: 5,
+                marginBottom: 15,
                 margin: 'auto',
             }}>
                 <Typography sx={{ fontSize: 28 }} color="text.secondary" >{title}</Typography>
@@ -23,11 +34,12 @@ export default function Timer({ title, project, elapsed, runningSince, runningTi
                     <h1>{timer}</h1>
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginBottom: '20' }} >
-                    <DeleteIcon />
+                    <DeleteIcon onClick={handleDelete} />
                     <EditIcon />
                 </Box>
-                <TimerActionButton isTimerRunning={timerIsRunning}
-                    onStartClick={() => { setTimmerIsRunning(true) }} onStopClick={() => { setTimmerIsRunning(false) }} />
+                <TimerActionButton isTimerRunning={runningSince}
+                    onStartClick={handleStartClick}
+                    onStopClick={handleStopClick} />
             </Card>
         </Container>
     )
