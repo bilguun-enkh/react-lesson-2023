@@ -1,9 +1,23 @@
 import React from "react"
 import './App.css';
 import { AiFillCaretRight } from "react-icons/ai"
-
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { employeeData } from "./data";
 function App() {
+  const [data, setData] = useState()
+
   const url = "https://course-api.com/react-tabs-project";
+  async function callURL() {
+    const FETCHED_URL = await fetch(url)
+    const FETCHED_JSON = await FETCHED_URL.json()
+    setData(FETCHED_JSON)
+  }
+  useEffect(() => {
+    callURL()
+  }, [])
+
+  setData(employeeData)
 
   return (
     <section className="container">
@@ -14,23 +28,27 @@ function App() {
           <h4>Smith</h4>
           <h4>Tom</h4>
         </div>
-        <div className="company-content">
-          <h2 className="job-title">Full Stack Web Developer</h2>
-          <p className="company-name">John</p>
-          <p className="date">December 2015 - Present</p>
-          <div className="text">
-            <AiFillCaretRight />
-            <p>Tote bag sartorial mlkshk air plant vinyl banjo lumbersexual poke leggings offal cold-pressed brunch neutra. Hammock photo booth live-edge disrupt.</p>
-          </div>
-          <div className="text">
-            <AiFillCaretRight />
-            <p>Post-ironic selvage chambray sartorial freegan meditation. Chambray chartreuse kombucha meditation, man bun four dollar toast street art cloud bread live-edge heirloom.</p>
-          </div>
-          <div className="text">
-            <AiFillCaretRight />
-            <p>Butcher drinking vinegar franzen authentic messenger bag copper mug food truck taxidermy. Mumblecore lomo echo park readymade iPhone migas single-origin coffee franzen cloud bread tilde vegan flexitarian.</p>
-          </div>
-        </div>
+        {data && data.map((data, index) => {
+          return (
+            <div className="company-content" key={index}>
+              <h2 className="job-title">{data.title}</h2>
+              <p className="company-name">{data.company}</p>
+              <p className="date">{data.dates}</p>
+              <div className="text">
+                <AiFillCaretRight />
+                <p>{data.duties[0]}</p>
+              </div>
+              <div className="text">
+                <AiFillCaretRight />
+                <p>{data.duties[1]}</p>
+              </div>
+              <div className="text">
+                <AiFillCaretRight />
+                <p>{data.duties[2]}</p>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </section>
   );
