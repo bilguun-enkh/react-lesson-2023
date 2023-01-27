@@ -17,7 +17,6 @@ let data = [
         'id': 1,
         'name': 'Bilguun',
         'major': 'Com-Sci',
-        'age': 23
     }
 ]
 
@@ -31,12 +30,12 @@ app.get("/data", (request, response) => {
 })
 app.post("/data", (request, response) => {
     const length = data.length
-    const newData = {
+    const requestData = {
         id: length + 1,
         name: request.body.name,
         major: request.body.major,
     }
-    data.push(newData)
+    data = [...data, requestData]
     response.json(data)
 })
 
@@ -48,11 +47,17 @@ app.delete("/data", (request, response) => {
 
 app.put("/data", (request, response) => {
     console.log(request.body)
-    const updateData = {
-        id: request.body.id,
-        name: request.body.name,
-        major: request.body.major,
-    }
+    const found = data.filter(d => d.id !== request.body.id)
+    const newData = data.map(d => {
+        if (d.id === request.body.id) {
+            d.name = request.body.name,
+                d.major = request.body.major
+        }
+        return d
+    })
+    data = newData
+
+
     response.json(data)
 })
 
