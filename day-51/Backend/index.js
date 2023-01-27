@@ -41,9 +41,18 @@ app.post("/data", (request, response) => {
 })
 
 app.delete("/data", (request, response) => {
-    console.log(typeof request.body)
     const newData = data.filter(d => d.id !== request.body.id)
     data = newData
+    response.json(data)
+})
+
+app.put("/data", (request, response) => {
+    console.log(request.body)
+    const updateData = {
+        id: request.body.id,
+        name: request.body.name,
+        major: request.body.major,
+    }
     response.json(data)
 })
 
