@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: skyblue;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -31,13 +35,21 @@
 .form-div {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 200px;
   margin: auto;
+}
+
+input {
+  width: 100px;
 }
 
 .form-div button {
   width: 70px;
   margin: auto;
+}
+
+.form-div label {
+  margin-left: auto;
 }
 
 @keyframes App-logo-spin {
