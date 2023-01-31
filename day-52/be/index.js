@@ -7,25 +7,6 @@ const PORT = 8080
 app.use(cors())
 app.use(express.json())
 
-
-app.get('/users', (request, response) => {
-
-    fs.readFile('./data/users.json', 'utf-8', (readError, readData) => {
-        if (readError) {
-            response.json({
-                status: 'file does not exist',
-                data: []
-            })
-        }
-
-        const objectData = JSON.parse(readData)
-
-        response.json({
-            status: 'Success',
-            data: objectData
-        })
-    })
-})
 app.delete('/users', (request, response) => {
     const body = request.body
     fs.readFile('./data/users.json', 'utf-8', (readError, readData) => {
@@ -54,22 +35,25 @@ app.delete('/users', (request, response) => {
     })
 })
 
-app.put("/users", (request, response) => {
-    const body = request.body
-    fs.readFile('./data/users/json', 'utf-8', (readError, readData) => {
+app.get('/users', (request, response) => {
+
+    fs.readFile('./data/users.json', 'utf-8', (readError, readData) => {
         if (readError) {
             response.json({
-                status: 'file not found',
+                status: 'file does not exist',
                 data: []
             })
         }
 
-    })
-    response.json({
-        status: 'Success',
-        data: dataObject,
+        const objectData = JSON.parse(readData)
+
+        response.json({
+            status: 'Success',
+            data: objectData
+        })
     })
 })
+
 app.post("/users", (request, response) => {
     const body = request.body
     console.log(body)
@@ -89,9 +73,7 @@ app.post("/users", (request, response) => {
         }
 
         const dataObject = JSON.parse(readData)
-        console.log(dataObject)
         dataObject.push(newUser)
-        console.log(dataObject)
 
         fs.writeFile('./data/users.json', JSON.stringify(dataObject), (writeError) => {
             if (writeError) {
@@ -108,6 +90,40 @@ app.post("/users", (request, response) => {
     })
 
 
+})
+
+app.put("/users", (request, response) => {
+    const body = request.body
+
+    fs.readFile('./data/users.json', 'utf-8', (readError, readData) => {
+        if (readError) {
+            response.json({
+                status: 'file read error',
+                data: []
+            })
+        }
+        const savedData = JSON.parse(readData)
+        const changedData = savedData.map(d => {
+            if (d.id === request.body.id) {
+                d.username = request.body.username,
+                    d.age = request.body.age
+            }
+            return d
+        })
+
+        fs.writeFile('./data/users.json', JSON.stringify(changedData), (writeError) => {
+            if (writeError) {
+                response.json({
+                    status: 'file write error',
+                    data: []
+                })
+            }
+            response.json({
+                status: 'Success',
+                data: changedData,
+            })
+        })
+    })
 })
 
 app.listen(PORT, () => {

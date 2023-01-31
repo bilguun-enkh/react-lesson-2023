@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-body {
-  background-color: skyblue;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,31 +28,10 @@ body {
   color: #61dafb;
 }
 
-.form-div {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  margin: auto;
-}
-
-input {
-  width: 100px;
-}
-
-.form-div button {
-  width: 70px;
-  margin: auto;
-}
-
-.form-div label {
-  margin-left: auto;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
