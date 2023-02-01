@@ -25,7 +25,7 @@ export default function ProductsNew() {
                     padding: '10px',
                     marginTop: '20px'
                 }}
-            >
+            >12
                 <Typography variant="h4" style={{ marginLeft: '0px', width: '200px', paddingTop: '20px' }}>Add Product</Typography>
 
             </Box >
