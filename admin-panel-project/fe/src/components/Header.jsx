@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from "react-router-dom";
+
 
 export default function Header() {
     return (
@@ -22,7 +24,9 @@ export default function Header() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Admin Panel Project
+                        <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+                            Admin Panel Project
+                        </Link>
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>

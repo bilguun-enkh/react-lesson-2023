@@ -3,6 +3,8 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { Link as ROUTERLink } from 'react-router-dom';
+
 
 function handleClick(event) {
     event.preventDefault();
@@ -11,18 +13,16 @@ function handleClick(event) {
 
 export default function ProjectBreadCrumbs() {
     const breadcrumbs = [
-        <Link underline="hover" key="1" color="inherit" href="/" onClick={handleClick} style={{ width: '500px', marginLeft: '280px' }}>
-            Root
-        </Link>,
-        <Link
-            underline="hover"
-            key="2"
-            color="inherit"
-            href="/material-ui/getting-started/installation/"
-            onClick={handleClick}
-        >
-            Product
-        </Link>,
+        <ROUTERLink to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
+            <Link underline="hover" key="1" color="inherit" href="/" style={{ width: '500px', marginLeft: '280px' }}>
+                Root
+            </Link>
+        </ROUTERLink>,
+        <ROUTERLink to={'/Products'} style={{ textDecoration: 'none', color: 'black' }}  >
+            < Link underline="hover" key="2" color="inherit">
+                Products
+            </Link>
+        </ROUTERLink >,
     ];
 
     return (

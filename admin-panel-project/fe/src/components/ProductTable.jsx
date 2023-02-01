@@ -60,52 +60,52 @@ function stableSort(array, comparator) {
 
 const headCells = [
     {
-        id: 'first-name',
+        id: 'name',
         numeric: false,
         disablePadding: true,
-        label: 'First Name',
+        label: 'Name',
     },
     {
-        id: 'last-name',
+        id: 'price',
         numeric: false,
         disablePadding: false,
-        label: 'Last Name',
+        label: 'Price',
     },
     {
-        id: 'email',
+        id: 'imgURL',
         numeric: false,
         disablePadding: false,
-        label: 'Email',
+        label: 'IMG URL',
     },
     {
-        id: 'phone-number',
+        id: 'stock',
         numeric: true,
         disablePadding: false,
-        label: 'Phone number',
+        label: 'Stock',
     },
     {
-        id: 'age',
+        id: 'size',
         numeric: true,
         disablePadding: false,
-        label: 'Age',
+        label: 'Size',
     },
     {
-        id: 'gender',
+        id: 'color',
         numeric: true,
         disablePadding: false,
-        label: 'Gender',
+        label: 'Color',
     },
     {
-        id: 'password',
+        id: 'category',
         numeric: false,
         disablePadding: false,
-        label: 'Pasword',
+        label: 'Catergory',
     },
     {
-        id: 'address',
-        numeric: true,
+        id: 'description',
+        numeric: false,
         disablePadding: false,
-        label: 'Address',
+        label: 'Description',
     },
 
 ];
@@ -196,7 +196,7 @@ function EnhancedTableToolbar(props) {
                     id="tableTitle"
                     component="div"
                 >
-                    Users table
+                    Product table
                 </Typography>
             )}
 
@@ -221,7 +221,7 @@ EnhancedTableToolbar.propTypes = {
     numSelected: PropTypes.number.isRequired,
 };
 
-export default function UsersTable() {
+export default function ProductTable() {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);
