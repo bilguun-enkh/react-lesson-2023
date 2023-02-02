@@ -1,5 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react'
+// import { } from './services/userServices'
+import { fetchAllData, deleteUser, updateUser, createUser } from './services/axiosUsersService';
 
 function App() {
 
@@ -15,67 +17,20 @@ function App() {
   const [currentUser, setCurrentUser] = useState(newUser)
 
   useEffect(() => {
-    fetchAllData()
+    fetchAllData(URL, setUsers)
   }, [])
-
-  async function fetchAllData() {
-    const FETCHED_DATA = await fetch(URL)
-    const FETCHED_JSON = await FETCHED_DATA.json()
-    setUsers(FETCHED_JSON.data)
-  }
-
 
   async function handleSubmit(e) {
     e.preventDefault()
     if (!isUpdate) {
-      const postData = {
-        username: e.target.username.value,
-        age: e.target.age.value,
-      }
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postData)
-      }
-      const FETCHED_DATA = await fetch(URL, options)
-      const FETCHED_JSON = await FETCHED_DATA.json()
-      setUsers(FETCHED_JSON.data)
+      createUser(currentUser, URL, setUsers, setIsUpdate, setCurrentUser, newUser)
     } else {
-      const putData = {
-        id: currentUser.id,
-        username: currentUser.username,
-        age: currentUser.age,
-      }
-      const options = {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(putData)
-      }
-      const FETCHED_DATA = await fetch(URL, options)
-      const FETCHED_JSON = await FETCHED_DATA.json()
-      setUsers(FETCHED_JSON.data)
-      setIsUpdate(false)
-      setCurrentUser(newUser)
+      updateUser(e, URL, setUsers)
     }
   }
 
   async function handleDelete(userId) {
-    const options = {
-      method: 'DELETE',
-      headers: {
-        "Content-Type": 'application/json'
-      },
-      body: JSON.stringify({
-        userId: userId
-      })
-    }
-    const FETCHED_DATA = await fetch(URL, options)
-    const FETCHED_JSON = await FETCHED_DATA.json()
-    setUsers(FETCHED_JSON.data)
+    deleteUser(userId, URL, setUsers)
   }
 
   async function handleEdit(userId) {

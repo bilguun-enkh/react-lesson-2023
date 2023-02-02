@@ -44,7 +44,7 @@ export default function SideBar() {
                             <ROUTERLink to={'Home'} style={{ textDecoration: 'none', color: 'black' }} >
                                 <ListItemButton>
                                     <ListItemIcon>
-                                       <HomeIcon />
+                                        <HomeIcon />
                                     </ListItemIcon>
                                     <ListItemText primary={'Home'} />
                                 </ListItemButton>
