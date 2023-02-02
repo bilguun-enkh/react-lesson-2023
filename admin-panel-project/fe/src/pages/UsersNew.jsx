@@ -6,9 +6,29 @@ import AddUsersBreadCrumbs from "../components/NewUsersCrumbs";
 
 
 export default function UsersNew() {
+
+    const URL = 'http://localhost:8080/users'
+
     function handleSubmit(e) {
         e.preventDefault()
-        console.log('Submitted')
+        const postData = {
+            firstName: e.target.firstName.value,
+            lastName: e.taret.lastName.value,
+            email: e.target.email.value,
+            phoneNumber: e.target.phoneNumber.value,
+            age: e.target.age.value,
+            gender: e.target.gender.value,
+            password: e.target.password.value,
+            address: e.target.address.value
+        }
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postData)
+        }
+
     }
     return (
         <div >
