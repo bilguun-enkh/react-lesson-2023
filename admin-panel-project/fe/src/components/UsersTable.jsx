@@ -16,15 +16,26 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
-import { Button } from '@mui/material';
 
+function createData(firstName, lastName, email, phoneNumber, age, gender, password, address) {
+    return {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        age,
+        gender,
+        password,
+        address,
+    };
+}
 
-const rows = [];
+const rows = [
+    createData('Bill', 'Enkh', '123@gmail.com', '91111111', '23', 'Male', '3#@!#!@#!@', '1234 street',)
+];
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -60,7 +71,7 @@ function stableSort(array, comparator) {
 
 const headCells = [
     {
-        id: 'first-name',
+        id: 'firstName',
         numeric: false,
         disablePadding: true,
         label: 'First Name',
@@ -78,7 +89,7 @@ const headCells = [
         label: 'Email',
     },
     {
-        id: 'phone-number',
+        id: 'phoneNumber',
         numeric: true,
         disablePadding: false,
         label: 'Phone number',
@@ -327,18 +338,14 @@ export default function UsersTable() {
                                                     }}
                                                 />
                                             </TableCell>
-                                            <TableCell
-                                                component="th"
-                                                id={labelId}
-                                                scope="row"
-                                                padding="none"
-                                            >
-                                                {row.name}
-                                            </TableCell>
-                                            <TableCell align="center">{row.calories}</TableCell>
-                                            <TableCell align="center">{row.fat}</TableCell>
-                                            <TableCell align="center">{row.carbs}</TableCell>
-                                            <TableCell align="center">{row.protein}</TableCell>
+                                            <TableCell align="center">{row.firstName}</TableCell>
+                                            <TableCell align="center">{row.lastName}</TableCell>
+                                            <TableCell align="center">{row.email}</TableCell>
+                                            <TableCell align="center">{row.phoneNumber}</TableCell>
+                                            <TableCell align="center">{row.age}</TableCell>
+                                            <TableCell align="center">{row.gender}</TableCell>
+                                            <TableCell align="center">{row.password}</TableCell>
+                                            <TableCell align="center">{row.address}</TableCell>
                                         </TableRow>
                                     );
                                 })}

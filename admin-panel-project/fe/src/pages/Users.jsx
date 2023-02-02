@@ -11,7 +11,7 @@ export default function Users() {
             <UsersBreadCrumbs />
             <Typography variant="h4" style={{ marginLeft: '250px', width: '100px', marginTop: '50px' }}>Users</Typography>
             <Link to={'/newuser'} style={{ textDecoration: 'none' }} >
-                <Button variant="contained" style={{ marginBottom: '50px', marginLeft: '0' }}>New</Button>
+                <Button variant="contained" style={{ marginBottom: '50px', marginLeft: '0' }}>New User</Button>
             </Link>
             <UsersTable />
         </div >
