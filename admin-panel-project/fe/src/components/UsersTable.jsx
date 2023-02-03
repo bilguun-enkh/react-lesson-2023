@@ -34,7 +34,6 @@ function createData(firstName, lastName, email, phoneNumber, age, gender, passwo
 }
 
 const rows = [
-    createData('Bill', 'Enkh', '123@gmail.com', '91111111', '23', 'Male', '3#@!#!@#!@', '1234 street',)
 ];
 
 function descendingComparator(a, b, orderBy) {
