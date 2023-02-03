@@ -3,13 +3,15 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { Link } from "react-router-dom";
 import AddUsersBreadCrumbs from "../components/NewUsersCrumbs";
+import { useState } from "react";
 
 
 export default function UsersNew() {
+    const [currentUser, setCurrentUser] = useState()
 
     const URL = 'http://localhost:8080/users'
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
         const postData = {
             firstName: e.target.firstName.value,
@@ -28,7 +30,9 @@ export default function UsersNew() {
             },
             body: JSON.stringify(postData)
         }
-
+        const FETCHED_DATA = await fetch(URL, options)
+        const FETCHED_JSON = await FETCHED_DATA.json()
+        setCurrentUser(FETCHED_JSON.data)
     }
     return (
         <div >
@@ -42,7 +46,7 @@ export default function UsersNew() {
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    width: 1500,
+                    width: 1550,
                     height: 800,
                     backgroundColor: '#f5f5f5',
                     borderRadius: '10px',
@@ -70,7 +74,7 @@ export default function UsersNew() {
                     <TextField margin="dense" placeholder="Gender" type='text' name='gender'></TextField>
                     <TextField margin="dense" placeholder="Password" type='password' name='password'></TextField>
                     <TextField margin="dense" placeholder="Address" type='text' name='address'></TextField>
-                    <button>Save</button>
+                    <button><Button>Save</Button></button>
                     <div style={{ marginTop: '50px', display: 'flex', width: '300px', justifyContent: 'space-between' }}>
                         <Button variant="contained" color="success">Save</Button> <Button variant="contained" color="info">Reset</Button> <Button variant="contained" color="error">Cancel</Button>
                     </div>

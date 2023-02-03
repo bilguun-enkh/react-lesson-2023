@@ -14,6 +14,25 @@ app.use(cors())
 app.use(express.json())
 
 
+app.get('/UsersNew', (request, response) => {
+
+    fs.readFile('./data/users.json', 'utf-8', (readError, readData) => {
+        if (readError) {
+            response.json({
+                status: 'file does not exist',
+                data: []
+            })
+        }
+
+        const objectData = JSON.parse(readData)
+
+        response.json({
+            status: 'Success',
+            data: objectData
+        })
+    })
+})
+
 
 
 app.listen(PORT, () => {
