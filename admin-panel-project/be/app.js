@@ -14,7 +14,7 @@ app.use(cors())
 app.use(express.json())
 
 
-app.get('/UsersNew', (request, response) => {
+app.get('/pages/UsersNew', (request, response) => {
 
     fs.readFile('./data/users.json', 'utf-8', (readError, readData) => {
         if (readError) {
