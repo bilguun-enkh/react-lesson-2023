@@ -24,7 +24,7 @@ export default function UsersNew() {
             address: e.target.address.value
         }
         const options = {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
