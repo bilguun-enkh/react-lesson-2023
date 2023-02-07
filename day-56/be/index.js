@@ -3,7 +3,6 @@ console.log('DAY - 56 - REST API')
 const express = require('express')
 const fs = require('fs')
 const cors = require('cors')
-const { findSourceMap } = require('module')
 
 const app = express()
 const PORT = 8081
