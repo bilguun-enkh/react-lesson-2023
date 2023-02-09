@@ -1,7 +1,9 @@
 import { useContext } from 'react';
 import './App.css';
+import InputFocus from './components/InputFocus';
 import List from './components/List';
 import StopWatch from './components/StopWatch';
+import VideoPlayer from './components/VideoPlayer';
 import { PlaceContext, PlaceProvider } from './context/PlaceContext'
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <List imageSize={imageSize} />
       </PlaceProvider> 
       <StopWatch /> */}
+      {/* <InputFocus /> */}
+      <VideoPlayer />
     </div>
   );
 }
