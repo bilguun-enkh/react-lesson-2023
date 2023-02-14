@@ -15,7 +15,7 @@ export default function UsersNew() {
         e.preventDefault()
         const postData = {
             firstName: e.target.firstName.value,
-            lastName: e.taret.lastName.value,
+            lastName: e.target.lastName.value,
             email: e.target.email.value,
             phoneNumber: e.target.phoneNumber.value,
             age: e.target.age.value,
@@ -24,7 +24,7 @@ export default function UsersNew() {
             address: e.target.address.value
         }
         const options = {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
