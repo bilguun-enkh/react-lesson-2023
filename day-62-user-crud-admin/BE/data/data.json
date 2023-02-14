@@ -1,0 +1,13 @@
+[
+    {
+        "firstname": "Bilguun",
+        "lastname": "Enkh",
+        "email": "123@gmail.com",
+        "password": "123",
+        "address": "1234",
+        "role": {
+            "id": 1,
+            "name": "Admin"
+        }
+    }
+]
