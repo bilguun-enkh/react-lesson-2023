@@ -14,8 +14,8 @@ app.use(cors())
 app.use(express.json())
 
 
-app.get('/pages/UsersNew', (request, response) => {
-
+app.post('/users', (request, response) => {
+    console.log(request.body)
     fs.readFile('./data/users.json', 'utf-8', (readError, readData) => {
         if (readError) {
             response.json({
@@ -25,10 +25,17 @@ app.get('/pages/UsersNew', (request, response) => {
         }
 
         const objectData = JSON.parse(readData)
-
-        response.json({
-            status: 'Success',
-            data: objectData
+        fs.writeFile('users', 'utf-8', (readError, readData) => {
+            if (readError) {
+                response.json({
+                    status: 'file write error',
+                    data: []
+                })
+            }
+            response.json({
+                status: 'Success',
+                data: objectData
+            })
         })
     })
 })
