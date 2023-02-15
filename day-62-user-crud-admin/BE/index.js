@@ -109,21 +109,34 @@ app.post('/login', (request, response) => {
             const foundUserObj = foundUser[0]
             console.log("Found user", foundUserObj)
 
-            if (foundUserObj.password !== body.password) {
-                response.json({
-                    status: 'Username or Password is wrong!',
-                    data: []
-                })
-            } else {
-                response.json({
-                    status: 'Success',
-                    data: {
-                        email: foundUserObj.email,
-                        firstname: foundUserObj.firstname,
-                        lastname: foundUserObj.lastname,
-                    }
-                })
-            }
+            const plainPassword = body.password
+            const savedPassword = foundUserObj.password
+
+            becrpyt.compare(plainPassword, savedPassword, (compareError, compareResult) => {
+                if (compareError) {
+                    response.json({
+                        status: "Username or password does not match.",
+                        data: []
+                    })
+                }
+                if (compareResult) {
+                    console.log('It matches')
+                    response.json({
+                        status: 'Success',
+                        data: {
+                            email: foundUserObj.email,
+                            firstname: foundUserObj.firstname,
+                            lastname: foundUserObj.lastname,
+                        }
+                    })
+                } else {
+                    console.log('Invalid password')
+                    response.json({
+                        status: 'Username or Password is wrong!',
+                        data: []
+                    })
+                }
+            })
         }
     })
 })
