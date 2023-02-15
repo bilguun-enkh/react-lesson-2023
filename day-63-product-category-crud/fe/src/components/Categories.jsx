@@ -31,16 +31,23 @@ export default function Categories() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Test</td>
-                        <td>
-                            <button>Edit</button>
-                        </td>
-                        <td>
-                            <button>Delete</button>
-                        </td>
-                    </tr>
+                    {
+                        categories && categories.map((category, index) => {
+                            return (
+
+                                <tr key={index}>
+                                    <td>{category.id}</td>
+                                    <td>{category.name}</td>
+                                    <td>
+                                        <button>Edit</button>
+                                    </td>
+                                    <td>
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
         </div>
