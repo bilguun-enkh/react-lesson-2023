@@ -35,7 +35,7 @@ export default function UserRegisterForm() {
             lastname: e.target.lastname.value,
             email: e.target.email.value,
             password: e.target.password.value,
-            addres: e.target.address.value,
+            address: e.target.address.value,
             role: currentRole,
         }
         const options = {
@@ -57,7 +57,7 @@ export default function UserRegisterForm() {
             <link>
 
             </link>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{ marginTop: '15px' }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <TextField

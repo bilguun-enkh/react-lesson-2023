@@ -1,9 +1,9 @@
 [
     {
-        "firstname": "Bilguun",
-        "lastname": "Enkh",
+        "firstname": "123",
+        "lastname": "123",
         "email": "123@gmail.com",
-        "password": "123",
+        "password": "$2b$10$BP3h9IJOH9utSTMK0kEX6OUcyT7gIbzD6X6MJehHlybhoErYYctgu",
         "address": "1234",
         "role": {
             "id": 1,

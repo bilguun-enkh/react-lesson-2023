@@ -68,15 +68,14 @@ export default function UsersNew() {
                     onSubmit={handleSubmit}>
                     <TextField margin="dense" placeholder="First Name" type='text' name='firstName'></TextField>
                     <TextField margin="dense" placeholder="Last Name" type='text' name='lastName'></TextField>
-                    <TextField margin="dense" placeholder="Email Name" type='email' name='email'></TextField>
+                    <TextField margin="dense" placeholder="Email" type='email' name='email'></TextField>
                     <TextField margin="dense" placeholder="Phone Number" type='number' name='phoneNumber'></TextField>
                     <TextField margin="dense" placeholder="Age" type='number' name='age'></TextField>
                     <TextField margin="dense" placeholder="Gender" type='text' name='gender'></TextField>
                     <TextField margin="dense" placeholder="Password" type='password' name='password'></TextField>
                     <TextField margin="dense" placeholder="Address" type='text' name='address'></TextField>
-                    <button><Button>Save</Button></button>
                     <div style={{ marginTop: '50px', display: 'flex', width: '300px', justifyContent: 'space-between' }}>
-                        <Button variant="contained" color="success">Save</Button> <Button variant="contained" color="info">Reset</Button> <Button variant="contained" color="error">Cancel</Button>
+                        <Button variant="contained" color="success" type='submit'>Save</Button> <Button variant="contained" color="info">Reset</Button> <Button variant="contained" color="error">Cancel</Button>
                     </div>
                 </form>
             </Box>

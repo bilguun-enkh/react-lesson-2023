@@ -15,6 +15,18 @@ app.use(express.json())
 
 
 app.post('/users', (request, response) => {
+    const body = request.body
+    const newUser = {
+        firstName: body.firstName,
+        lastName: body.lastName,
+        email: body.email,
+        phoneNumber: body.phoneNumber,
+        age: body.age,
+        gender: body.gender,
+        password: body.password,
+        address: body.address,
+    }
+
     console.log(request.body)
     fs.readFile('./data/users.json', 'utf-8', (readError, readData) => {
         if (readError) {
@@ -25,8 +37,9 @@ app.post('/users', (request, response) => {
         }
 
         const objectData = JSON.parse(readData)
-        fs.writeFile('users', 'utf-8', (readError, readData) => {
-            if (readError) {
+        objectData.push(newUser)
+        fs.writeFile('./data/users.json', JSON.stringify(objectData), (writeError) => {
+            if (writeError) {
                 response.json({
                     status: 'file write error',
                     data: []
