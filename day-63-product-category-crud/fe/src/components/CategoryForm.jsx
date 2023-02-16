@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function () {
 
 
     const URL = 'http://localhost:8080/category'
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     async function handleCategorySubmit(e) {
         e.preventDefault()
@@ -14,16 +15,37 @@ export default function () {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                catName: e.target.catName.value
+                categoryName: e.target.catName.value,
+                isEdit: false,
             })
         }
 
         const FETCHED_DATA = await fetch(URL, options)
         const FETCHED_JSON = await FETCHED_DATA.json()
         console.log(FETCHED_JSON)
-        // if (FETCHED_JSON.status === 'Success') {
-        //     navigate("/category/list")
-        // }
+        if (FETCHED_JSON.status === 'Success') {
+            toast.success('Category added!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        } else {
+            toast.error('Failed to add', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
     }
 
     return (
