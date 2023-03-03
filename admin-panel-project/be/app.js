@@ -25,6 +25,7 @@ app.post('/users', (request, response) => {
         gender: body.gender,
         password: body.password,
         address: body.address,
+        userRole: body.userRole
     }
 
     console.log(request.body)
