@@ -6,7 +6,7 @@ import admin from "./routes/admin.js"
 
 
 const app = express()
-const PORT = 8082
+const PORT = 8080
 app.use(express.json())
 app.use(cors())
 app.use("/admin", admin)
