@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 
 export default function UsersNew() {
 
-    const URL = 'http://localhost:8080/users'
+    const URL = 'http://localhost:8081/users'
     const [currentUser, setCurrentUser] = useState()
     const [users, setUsers] = useState([])
 
@@ -41,6 +41,7 @@ export default function UsersNew() {
         const FETCHED_DATA = await fetch(URL, options)
         const FETCHED_JSON = await FETCHED_DATA.json()
         setCurrentUser(FETCHED_JSON.data)
+        console.log(FETCHED_JSON)
     }
     async function fetchUsers() {
         const FETCHED_DATA = await fetch(URL)
