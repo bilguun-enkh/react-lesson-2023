@@ -13,7 +13,7 @@ export default function Users() {
             <Link to={'/newuser'} style={{ textDecoration: 'none' }} >
                 <Button variant="contained" style={{ marginBottom: '50px', marginLeft: '0' }}>New User</Button>
             </Link>
-            <UsersTable />
+
         </div >
     )
 }
