@@ -8,7 +8,8 @@ const todoSchema = new mongoose.Schema({
     checked: {
         type: Boolean,
         default: false,
-    }
+    },
+    category: { type: mongoose.Schema.Types.ObjectId, ref: "Category" }
 })
 
 const Todo = mongoose.model('Todo', todoSchema)
