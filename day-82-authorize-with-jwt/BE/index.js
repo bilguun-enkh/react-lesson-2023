@@ -4,7 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const adminRouter = require('./routes/Admin.api')
-const apiRouter = require('./routes/Api')
+const apiRouter = require('./routes/api')
 const PORT = 8080
 const app = express()
 
@@ -20,6 +20,6 @@ app.listen(PORT, () => {
     mongoose
         .connect(MONGO_CONNECTION_STRING)
         .then(() => console.log("Database connected succesfully"))
-        .catch((error) => console.error(error))
-    console.log(`Application is running on http://localhost:${PORT}`)
-})
+        .catch((error) => console.error(error));
+    console.log(`Express Application is running on http://localhost:${PORT}`);
+});

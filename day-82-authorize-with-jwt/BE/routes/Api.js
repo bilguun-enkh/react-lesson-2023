@@ -1,17 +1,17 @@
 const express = require("express")
 const apiRouter = express.Router()
+const auth = require("../middleware/auth")
 
-apiRouter.post("/protected", async (request, response) => {
-    response.status(200).json({
-        data: []
-    })
-})
+apiRouter.post("/protected", auth, (req, res, next) => {
+    res.status(200).json({
+        data: "successful got the protected route",
+    });
+});
 
-apiRouter.post("/unprotected", async (request, response) => {
-    console.log(request.body)
-    response.status(200).json({
-        data: []
-    })
-})
+apiRouter.post("/unprotected", (req, res, next) => {
+    res.status(200).json({
+        data: "successful got the unprotected route",
+    });
+});
 
 module.exports = apiRouter
