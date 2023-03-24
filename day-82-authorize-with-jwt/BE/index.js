@@ -3,12 +3,13 @@ console.log('Day - 82 - authorize with jwt')
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+require("dotenv").config()
 const adminRouter = require('./routes/Admin.api')
 const apiRouter = require('./routes/api')
-const PORT = 8080
+const PORT = process.env.PORT
 const app = express()
 
-const MONGO_CONNECTION_STRING = "mongodb+srv://bilguun-enkh:JV341KR5DHasM50q@mernstackpineconedb.mwhgdhi.mongodb.net/test"
+const MONGO_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING
 
 app.use(express.json())
 app.use(cors())
