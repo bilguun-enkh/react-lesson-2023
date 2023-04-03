@@ -1,4 +1,4 @@
-console.log('Day - 90 - Express-Typecript')
+console.log('Day - 90 - Express-TypeScript')
 
 
 // const express = require('express')
@@ -7,8 +7,8 @@ console.log('Day - 90 - Express-Typecript')
 import express, { Express, Request, Response } from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import theaterRouter from './routes/theaters.api'
 dotenv.config()
-console.log('test')
 
 
 const app: Express = express()
@@ -39,6 +39,8 @@ app.use(express.json())
 app.get('/', (request: Request, response: Response) => {
     response.status(200).send(name)
 })
+
+app.use('/theaters', theaterRouter)
 
 app.listen(PORT, () => {
     mongoose
