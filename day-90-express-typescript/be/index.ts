@@ -8,6 +8,7 @@ import express, { Express, Request, Response } from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
+console.log('test')
 
 
 const app: Express = express()
