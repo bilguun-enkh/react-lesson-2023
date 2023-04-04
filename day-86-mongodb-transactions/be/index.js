@@ -27,3 +27,11 @@ app.listen(PORT, () => {
         .catch((error) => console.error(error));
     console.log(`Express Application is running on http://localhost:${PORT}`);
 })
+
+app.listen(PORT, () => {
+    mongoose
+        .connect(MONGO_CONNECTION_STRING)
+        .then(() => console.log("Database connected succesfully."))
+        .catch((error) => console.error(error));
+    console.log(`Express Application is running on http://localhost:${PORT}`);
+})
