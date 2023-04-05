@@ -29,7 +29,7 @@ interface ITheater {
     location: ILocation
 }
 
-const number: number = 1003
+const number: number = 1004
 export default function Theaters(): JSX.Element {
     const [state, setState] = useState<ITheater[]>([])
     async function fetchData(): Promise<void> {

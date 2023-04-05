@@ -6,6 +6,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import theaterRouter from './routes/theaters.api'
 import commentRouter from './routes/comments.api'
+import movieRouter from './routes/movies.api'
 dotenv.config()
 
 const app: Express = express()
@@ -41,6 +42,7 @@ app.get('/', (request: Request, response: Response) => {
 
 app.use('/theaters', theaterRouter)
 app.use('/comments', commentRouter)
+app.use('/movies', movieRouter)
 
 app.listen(PORT, () => {
     mongoose

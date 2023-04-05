@@ -1,4 +1,5 @@
-import mongoose, { Date, Schema } from "mongoose";
+import { useEffect, useState } from "react"
+import styles from '@/styles/Home.module.css'
 
 interface IViewer {
     rating: number,
@@ -55,8 +56,26 @@ interface IMovie {
     tomatoes: ITomatoes
 }
 
-const MovieSchema: Schema = new Schema({})
 
-const MovieModel = mongoose.model<IMovie>("Movie", MovieSchema)
+export default function Movies(): JSX.Element {
+    const [movies, setMovies] = useState<IMovie[]>([])
+    async function fetchMovies(): Promise<void> {
+        const FETCHED_DATA = await fetch(`http://localhost:8080/movies/list`)
+        const FETCHED_JSON = await FETCHED_DATA.json()
+        setMovies(FETCHED_JSON)
+    }
+    useEffect(() => {
+        fetchMovies()
+    }, [])
 
-export default MovieModel
+    return (
+        <div className={styles.moviesDiv}>
+            {movies.map((movies, index) =>
+                <div className={styles.moviesDiv}>
+                    <h4>{movies.title}</h4>
+                    <img src={movies.poster} alt="" />
+                </div>
+            )}
+        </div>
+    )
+}
