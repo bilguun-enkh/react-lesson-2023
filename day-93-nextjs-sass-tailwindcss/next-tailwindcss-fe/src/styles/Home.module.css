@@ -7,83 +7,6 @@
   min-height: 100vh;
 }
 
-.container {
-  width: 1100px;
-  margin: auto;
-  max-width: 100%;
-}
-
-.header {
-  background-color: #fa320a;
-  display: flex;
-  align-items: center;
-  margin-top: 80px;
-  height: 103px;
-  color: white;
-  font-family: var(--font-mono);
-}
-
-.headerImg {
-  height: 50px;
-}
-
-.searchBarDiv {
-  width: 320px;
-  margin: 20px;
-}
-
-.searchBar {
-  width: 301px;
-  border-radius: 26px;
-  border: none;
-  height: 31px;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.searchBar::placeholder {
-  color: white;
-  padding-left: 20px;
-}
-
-.searchBarImg {
-  width: 16px;
-  height: 16px;
-}
-
-.navigateDiv {
-  display: flex;
-  justify-content: space-between;
-}
-
-.navigateDiv button {
-  display: inline-block;
-  border: none;
-  padding: 1rem 2rem;
-  margin: 0;
-  background-color: #fa320a;
-  text-decoration: none;
-  color: #ffffff;
-  font-family: sans-serif;
-  font-size: 0.8rem;
-  cursor: pointer;
-  text-align: center;
-}
-
-.navigateLink {
-  display: flex;
-  justify-content: space-between;
-  width: 472px;
-  padding-top: 20px;
-}
-
-.moviesDiv {
-  display: flex;
-  width: 1080px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-
 .description {
   display: inherit;
   justify-content: inherit;
@@ -220,9 +143,11 @@
   inset: 0;
   padding: 1px;
   border-radius: var(--border-radius);
-  background: linear-gradient(to bottom right,
-      rgba(var(--tile-start-rgb), 1),
-      rgba(var(--tile-end-rgb), 1));
+  background: linear-gradient(
+    to bottom right,
+    rgba(var(--tile-start-rgb), 1),
+    rgba(var(--tile-end-rgb), 1)
+  );
   background-clip: content-box;
 }
 
@@ -301,9 +226,11 @@
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(to bottom,
-        rgba(var(--background-start-rgb), 1),
-        rgba(var(--callout-rgb), 0.5));
+    background: linear-gradient(
+      to bottom,
+      rgba(var(--background-start-rgb), 1),
+      rgba(var(--callout-rgb), 0.5)
+    );
     background-clip: padding-box;
     backdrop-filter: blur(24px);
   }
@@ -314,9 +241,11 @@
     inset: auto 0 0;
     padding: 2rem;
     height: 200px;
-    background: linear-gradient(to bottom,
-        transparent 0%,
-        rgb(var(--background-end-rgb)) 40%);
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(var(--background-end-rgb)) 40%
+    );
     z-index: 1;
   }
 }
@@ -343,7 +272,6 @@
   from {
     transform: rotate(360deg);
   }
-
   to {
     transform: rotate(0deg);
   }

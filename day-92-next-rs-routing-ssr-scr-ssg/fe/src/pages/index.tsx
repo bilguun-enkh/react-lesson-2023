@@ -20,14 +20,13 @@ export default function Home(props: any): JSX.Element {
   const side = typeof window ? 'client' : 'server'
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
+    <div className="container md mx-auto">
+      <div className="flex md bg-red mx-auto">
         <img className={styles.headerImg} src="https://images.fandango.com/cms/assets/2d5a3340-be84-11ed-9d20-83ee649e98bd--rt25-logo-mainnav-161x50.svg" alt="" />
         <div className={styles.searchBarDiv}>
           <input className={styles.searchBar} type="text" placeholder='Search movies, TV, actors, more...' />
         </div>
-        <div>
-
+        <div className='mx-auto'>
           <NavigationPage />
           {/* Welcome, Youre currently on the {side}-side */}
           <div className={styles.navigateLink}>
@@ -38,7 +37,6 @@ export default function Home(props: any): JSX.Element {
             <br />
             <Link href="/greeting/John?age=25">Greeting Page</Link>
             <br />
-            {/* <Link href="/posts/2021-08-01/first-posts">Posts Page</Link> */}
             <Link href={{
               pathname: "/posts/[date]/[slug]",
               query: { date: "2021-08-01", slug: "first-post" }
@@ -48,8 +46,12 @@ export default function Home(props: any): JSX.Element {
           </div>
         </div>
       </div>
+      <div className="bg-grey">
+        <h1 className='text'>
+          Hello world!
+        </h1>
+      </div>
       <Movies />
     </div>
   )
-
 }

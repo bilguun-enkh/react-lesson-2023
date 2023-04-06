@@ -69,11 +69,11 @@ export default function Movies(): JSX.Element {
     }, [])
 
     return (
-        <div className={styles.moviesDiv}>
+        <div className="flex mx-auto flex-wrap justify-evenly">
             {movies.map((movies, index) =>
-                <div className={styles.moviesDiv}>
-                    <h4>{movies.title}</h4>
-                    <img src={movies.poster} alt="" />
+                <div className="width-500px">
+                    <h4>{movies.title} //</h4>
+                    <img src={movies.poster} alt={movies.title} className="min-w-min max-w-lg" />
                 </div>
             )}
         </div>
