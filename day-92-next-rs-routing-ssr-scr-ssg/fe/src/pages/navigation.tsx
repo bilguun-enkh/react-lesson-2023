@@ -13,7 +13,7 @@ export default function NavigationPage(): JSX.Element {
     }, [navigate])
 
     return (
-        <div className="flex justify-between">
+        <div className="flex justify-between text-white">
             <button>What's the Tomatometer</button>
             <button onClick={() => setNavigate(true)}>Contact</button>
             <button>LOGIN/SIGNUP</button>

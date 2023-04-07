@@ -6,7 +6,8 @@ module.exports = {
       colors: {
         blue: "skyblue",
         grey: "rgba(0,0,0,.6)",
-        red: "#fa320a"
+        red: "#fa320a",
+        yellow: "#FFE408"
       }
     },
     screens: {
