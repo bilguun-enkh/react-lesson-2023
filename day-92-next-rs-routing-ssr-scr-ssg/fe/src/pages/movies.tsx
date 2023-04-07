@@ -1,5 +1,6 @@
+import React from "react"
 import { useEffect, useState } from "react"
-import styles from '@/styles/Home.module.css'
+
 
 interface IViewer {
     rating: number,
@@ -64,18 +65,46 @@ export default function Movies(): JSX.Element {
         const FETCHED_JSON = await FETCHED_DATA.json()
         setMovies(FETCHED_JSON)
     }
+    async function sendPage(page: any) {
+        const URL = `http://localhost:8181/movies/list?page=${page}`
+        const FETCHED_DATA = await fetch(URL);
+        const FETCHED_JSON = await FETCHED_DATA.json();
+        setMovies(FETCHED_JSON)
+    }
+
+    const [page, setPage] = React.useState(1);
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        sendPage(value);
+        setPage(value)
+    }
     useEffect(() => {
         fetchMovies()
     }, [])
 
     return (
-        <div className="flex mx-auto flex-wrap justify-evenly">
+        <div className="flex mx-auto flex-wrap justify-between">
             {movies.map((movies, index) =>
-                <div style={{ width: '400px' }} key="index">
-                    <h4>{movies.title}</h4>
-                    <img src={!movies.poster ? "no-image.png" : movies.poster} alt={movies.title} className="max-w-lg" style={{ width: '250px' }} />
+                <div style={{ width: '250px' }} key="index">
+                    <div className="border border-red-400">
+
+                        <img src={!movies.poster ? "no-image.png" : movies.poster} alt={movies.title} className="max-w-lg" style={{ width: '80%', height: '300px', objectFit: 'contain' }} />
+                    </div>
+                    <div className="flex items-center">
+                        <img src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/tomatometer/tomatometer-fresh.149b5e8adc3.svg" alt="" style={{
+                            width: "16px",
+                            height: "16px"
+                        }} />
+                        <p>{movies.tomatoes?.viewer?.meter ? movies.tomatoes?.viewer?.meter : 0}%</p>
+                    </div>
+                    <h3>{movies.title}</h3>
                 </div>
             )}
+            <div className="mx-60 m-5 rounded-md">
+                {/* <Stack spacing={2} alignItems="center" > */}
+
+                {/* <Pagination count={15} page={page} onChange={handleChange} /> */}
+                {/* </Stack> */}
+            </div>
         </div>
     )
 }

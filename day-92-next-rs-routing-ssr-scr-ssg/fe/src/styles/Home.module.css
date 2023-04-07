@@ -70,6 +70,7 @@
 }
 
 .navigateLink {
+  color: white;
   display: flex;
   justify-content: space-between;
   width: 472px;
