@@ -71,9 +71,9 @@ export default function Movies(): JSX.Element {
     return (
         <div className="flex mx-auto flex-wrap justify-evenly">
             {movies.map((movies, index) =>
-                <div className="width-500px">
-                    <h4>{movies.title} //</h4>
-                    <img src={movies.poster} alt={movies.title} className="min-w-min max-w-lg" />
+                <div style={{ width: '400px' }} key="index">
+                    <h4>{movies.title}</h4>
+                    <img src={!movies.poster ? "no-image.png" : movies.poster} alt={movies.title} className="max-w-lg" style={{ width: '250px' }} />
                 </div>
             )}
         </div>
