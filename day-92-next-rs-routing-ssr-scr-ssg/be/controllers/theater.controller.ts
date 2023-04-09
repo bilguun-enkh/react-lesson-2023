@@ -4,6 +4,7 @@ import { Request, Response } from 'express'
 export const getTheaters = async (request: Request, response: Response) => {
     try {
         const theaters = await TheaterModel.find({})
+        console.log(theaters)
         response.status(200).json(theaters)
     } catch (error) {
         response.status(404).json({ data: [] })

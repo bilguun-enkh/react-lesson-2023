@@ -64,19 +64,20 @@ export default function Movies(): JSX.Element {
         const FETCHED_DATA = await fetch(`http://localhost:8080/movies/list`)
         const FETCHED_JSON = await FETCHED_DATA.json()
         setMovies(FETCHED_JSON)
+        console.log(movies)
     }
-    async function sendPage(page: any) {
-        const URL = `http://localhost:8181/movies/list?page=${page}`
-        const FETCHED_DATA = await fetch(URL);
-        const FETCHED_JSON = await FETCHED_DATA.json();
-        setMovies(FETCHED_JSON)
-    }
+    // async function sendPage(page: any) {
+    //     const URL = `http://localhost:8181/movies/list?page=${page}`
+    //     const FETCHED_DATA = await fetch(URL);
+    //     const FETCHED_JSON = await FETCHED_DATA.json();
+    //     setMovies(FETCHED_JSON)
+    // }
 
-    const [page, setPage] = React.useState(1);
-    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        sendPage(value);
-        setPage(value)
-    }
+    // const [page, setPage] = React.useState(1);
+    // const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    //     sendPage(value);
+    //     setPage(value)
+    // }
     useEffect(() => {
         fetchMovies()
     }, [])
