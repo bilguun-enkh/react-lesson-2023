@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 import { useEffect, useState } from "react"
 
@@ -86,14 +87,17 @@ export default function Movies(): JSX.Element {
         <div className="flex mx-auto flex-wrap justify-between">
             {movies.map((movies, index) =>
                 <div style={{ width: '250px' }} key="index">
-                    <div className="border border-red-400">
+                    <div className="">
+                        {/* <Link>
+                        </Link> */}
 
                         <img src={!movies.poster ? "no-image.png" : movies.poster} alt={movies.title} className="max-w-lg" style={{ width: '80%', height: '300px', objectFit: 'contain' }} />
                     </div>
                     <div className="flex items-center">
                         <img src="https://www.rottentomatoes.com/assets/pizza-pie/images/icons/tomatometer/tomatometer-fresh.149b5e8adc3.svg" alt="" style={{
                             width: "16px",
-                            height: "16px"
+                            height: "16px",
+                            borderRadius: '20px'
                         }} />
                         <p>{movies.tomatoes?.viewer?.meter ? movies.tomatoes?.viewer?.meter : 0}%</p>
                     </div>
