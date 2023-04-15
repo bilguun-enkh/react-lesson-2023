@@ -67,18 +67,6 @@ export default function Movies(): JSX.Element {
         setMovies(FETCHED_JSON)
         console.log(movies)
     }
-    // async function sendPage(page: any) {
-    //     const URL = `http://localhost:8181/movies/list?page=${page}`
-    //     const FETCHED_DATA = await fetch(URL);
-    //     const FETCHED_JSON = await FETCHED_DATA.json();
-    //     setMovies(FETCHED_JSON)
-    // }
-
-    // const [page, setPage] = React.useState(1);
-    // const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    //     sendPage(value);
-    //     setPage(value)
-    // }
     useEffect(() => {
         fetchMovies()
     }, [])
@@ -105,10 +93,6 @@ export default function Movies(): JSX.Element {
                 </div>
             )}
             <div className="mx-60 m-5 rounded-md">
-                {/* <Stack spacing={2} alignItems="center" > */}
-
-                {/* <Pagination count={15} page={page} onChange={handleChange} /> */}
-                {/* </Stack> */}
             </div>
         </div>
     )

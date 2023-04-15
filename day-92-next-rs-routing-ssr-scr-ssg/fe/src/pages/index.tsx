@@ -5,16 +5,6 @@ import Link from 'next/link'
 import NavigationPage from './navigation'
 import Movies from './movies'
 
-// export async function getServerSideProps() {
-//   const theaterRequest = await fetch("http://localhost:8080/comments/list")
-//   const theaterData = await theaterRequest.json()
-//   console.log(theaterData)
-//   return {
-//     props: {
-//       theater: theaterData
-//     }
-//   }
-// }
 
 export default function Home(props: any): JSX.Element {
   const side = typeof window ? 'client' : 'server'
@@ -28,7 +18,6 @@ export default function Home(props: any): JSX.Element {
         </div>
         <div className='mx-auto'>
           <NavigationPage />
-          {/* Welcome, Youre currently on the {side}-side */}
           <div className={styles.navigateLink} text-white >
             <br />
             <Link href="/about">About page</Link>
