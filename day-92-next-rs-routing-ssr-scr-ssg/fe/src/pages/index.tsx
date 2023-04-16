@@ -41,7 +41,7 @@ export default function Home(props: any): JSX.Element {
         </h1>
         <div className='flex justify-evenly text-white' style={{ width: '300px' }} >
           <p>RT25</p>
-          <p>Super Mario</p>
+          <p>Spider-Man: Across the Spider-Verse</p>
         </div>
       </div>
       <Movies />
